@@ -14,11 +14,13 @@ Diğer ekranlar için pagination eklendi. (Posts, Tasks)
 
 Post Detay ekranı eklendi. (see more button)
 
-Arama özelliği tüm ekranlarda kullanılabilir. (Users, Posts, Tasks)
+Arama özelliği tüm ekranlarda kullanılabilir. (Users, FavoriteUsers, Posts, Tasks)
 
 Albums ekranı belirtilmediği için eklenmedi. (Drawerda tasarıma uyması için ekledim)
 
+Favori kullanıcılar ekranında favoriden kaldırma işlemi yapıldığında bilinçli olarak kullanıcıyı ekranda tutuyorum. Yanlışlıkla kaldırılan durumlarda hemen geri eklenebilmesi için. Ekran yenilendiğinde kaldırılanlar siliniyor listeden.
 
+[**Geliştirmeyi video olarak incelemek isterseniz video linki**](https://youtu.be/z8j-0pca-NQ)
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
