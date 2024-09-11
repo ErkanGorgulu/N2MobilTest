@@ -1,8 +1,12 @@
 import React from 'react';
 import {View, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import MoreIcon from '../../assets/icons/more.svg';
+import UncheckedFavoriteIcon from '../../assets/icons/unchecked-favorite.svg';
+import CheckedFavoriteIcon from '../../assets/icons/checked-favorite.svg';
 import {colors} from '../../assets/colors';
 import Text from '../components/Text';
+import favoritesStore from '../stores/favoriteUsersStore';
+import {observer} from 'mobx-react-lite';
 
 type UserCardProps = {
   image?: string;
@@ -10,10 +14,27 @@ type UserCardProps = {
   email: string;
   phone?: string;
   onDetailPress?: () => void;
+  userId: number;
 };
 
-function UserCard(props: UserCardProps) {
-  const {image, name, email, phone, onDetailPress} = props;
+const UserCard = observer((props: UserCardProps) => {
+  const {image, name, email, phone, onDetailPress, userId} = props;
+
+  const handleFavoritePress = () => {
+    if (favoritesStore.isFavorite(userId)) {
+      favoritesStore.removeFavorite(userId);
+    } else {
+      favoritesStore.addFavorite({
+        id: userId,
+        name,
+        email,
+        phone,
+        image,
+        username: name,
+      });
+    }
+  };
+
   return (
     <View style={styles.userCard}>
       <View style={styles.userImageContainer}>
@@ -32,6 +53,15 @@ function UserCard(props: UserCardProps) {
         <Text style={styles.userPhone}>{phone}</Text>
       </View>
       <TouchableOpacity
+        style={styles.favoriteButton}
+        onPress={handleFavoritePress}>
+        {favoritesStore.isFavorite(userId) ? (
+          <CheckedFavoriteIcon width={24} height={24} />
+        ) : (
+          <UncheckedFavoriteIcon width={24} height={24} />
+        )}
+      </TouchableOpacity>
+      <TouchableOpacity
         style={styles.userDetailButton}
         onPress={() => {
           onDetailPress && onDetailPress();
@@ -40,7 +70,7 @@ function UserCard(props: UserCardProps) {
       </TouchableOpacity>
     </View>
   );
-}
+});
 
 const styles = StyleSheet.create({
   userCard: {
@@ -48,7 +78,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: 8,
     padding: 10,
-    marginBottom: 10,
     alignItems: 'center',
     borderWidth: 1,
     borderColor: colors.cloudySilver,
@@ -94,6 +123,11 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     letterSpacing: 0.4,
     fontWeight: '300',
+  },
+  favoriteButton: {
+    padding: 5,
+    marginRight: 5,
+    alignSelf: 'flex-start',
   },
   userDetailButton: {
     padding: 5,

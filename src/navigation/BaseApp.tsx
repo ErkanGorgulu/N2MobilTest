@@ -13,6 +13,7 @@ import PostDetailScreen from '../screens/secure/PostDetailScreen';
 import {DrawerParamList, PostsStackParamList} from './paramsList';
 import TasksScreen from '../screens/secure/TasksScreen';
 import DrawerContent from './DrawerContent';
+import FavoritesScreen from '../screens/secure/FavoriteUsersScreen';
 
 const Drawer = createDrawerNavigator<DrawerParamList>();
 const Stack = createNativeStackNavigator<PostsStackParamList>();
@@ -60,6 +61,10 @@ function App() {
           <Drawer.Screen
             name={screenNames.TasksScreen}
             component={TasksScreen}
+          />
+          <Drawer.Screen
+            name={screenNames.FavoritesScreen}
+            component={FavoritesScreen}
           />
         </Drawer.Navigator>
       </NavigationContainer>

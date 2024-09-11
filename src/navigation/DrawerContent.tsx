@@ -6,6 +6,7 @@ import DrawerButton from '../components/DrawerButton';
 import TasksIcon from '../../assets/icons/tasks.svg';
 import PostsIcon from '../../assets/icons/posts.svg';
 import UsersIcon from '../../assets/icons/profile.svg';
+import FavoriteIcon from '../../assets/icons/favorite-users.svg';
 import AlbumIcon from '../../assets/icons/album.svg';
 import {screenNames} from '../screens/screenNames';
 import {DrawerContentComponentProps} from '@react-navigation/drawer';
@@ -28,6 +29,11 @@ const DrawerContent = (props: DrawerContentComponentProps) => {
       text: 'Görevler',
       icon: TasksIcon,
       onPress: () => navigation.navigate(screenNames.TasksScreen),
+    },
+    {
+      text: 'Favoriler',
+      icon: FavoriteIcon,
+      onPress: () => navigation.navigate(screenNames.FavoritesScreen),
     },
     {
       text: 'Albüm',

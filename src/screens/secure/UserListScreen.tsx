@@ -115,6 +115,7 @@ const UserListScreen = (props: ScreenProps) => {
         phone={item.phone}
         image={item.image}
         onDetailPress={() => userDetailPress(item)}
+        userId={item.id}
       />
     );
   };
@@ -243,6 +244,7 @@ const styles = StyleSheet.create({
   listContentContainer: {
     paddingHorizontal: 20,
     paddingBottom: 20,
+    gap: 18,
   },
   bottomSheetContainer: {
     backgroundColor: colors.white,
