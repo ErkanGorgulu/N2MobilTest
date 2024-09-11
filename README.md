@@ -1,3 +1,25 @@
+Projeyi windows bir bilgisayarda android simulator üzerinde test ederek geliştirdim. Şu anda macOS bir cihaza sahip olmadığım için iOS versiyonunu henüz test edemedim.
+
+Figmada bulunan Styles kısmında kullanılan renkleri kullandım. Bazı durumlarda farklı renk kullanımları vardı. Onları tasarıma uygun olması için değiştirdim.
+
+Font family olarak Roboto-Regular default Text componentine uygulanmıştır.
+
+Icon ları react-native-svg ve transformer ile figmadan aldım. (Bazı durumlarda olmayan iconları AI ile tasarıma uygun şekilde çizdirdim)
+
+Bottomsheet kullanımı için react-native-bottom-sheet-behavior paketini kullandım.
+
+Kullanıcılar ekranında pagination eklemedim. Verilen url de pagination bilgisi bulunmuyor.
+
+Diğer ekranlar için pagination eklendi. (Posts, Tasks)
+
+Post Detay ekranı eklendi. (see more button)
+
+Arama özelliği tüm ekranlarda kullanılabilir. (Users, Posts, Tasks)
+
+Albums ekranı belirtilmediği için eklenmedi. (Drawerda tasarıma uyması için ekledim)
+
+
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started

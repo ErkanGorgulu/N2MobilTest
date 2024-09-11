@@ -36,7 +36,6 @@ const PostDetailScreen = ({navigation, route}: ScreenProps) => {
   const [postDetail, setPostDetail] = React.useState<Post>();
   const [commentsData, setCommentsData] = React.useState<Comment[]>([]);
   const [imageError, setImageError] = React.useState(false);
-  console.log(postId);
 
   useEffect(() => {
     Promise.all([
@@ -217,6 +216,7 @@ const styles = StyleSheet.create({
   },
   flatListContentContainer: {
     gap: 20,
+    paddingTop: 20,
     paddingBottom: 40,
     paddingHorizontal: 20,
   },
